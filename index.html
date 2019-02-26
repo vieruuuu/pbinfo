@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <title>pbinfo schema</title>
+</head>
+
+<body class="bg-dark text-white">
+
+  <div id="control" class="container">
+    <div id="app">
+      <br />
+      <h2>probleme:</h2>
+      <div v-for="row in probleme" class="row">
+        <div v-for="nr in row" class="col-lg-2">
+          <div class="form-group form-check">
+            <input type="checkbox" @change="addOrRemove(nr, true)" class="form-check-input" :id="`input-nr-${nr}`">
+            <label class="form-check-label" :for="`input-nr-${nr}`">{{ nr }}</label>
+          </div>
+        </div>
+      </div>
+      <br />
+      <h2>conturi:</h2>
+      <div v-for="row in conturi" class="row">
+        <div v-for="cont in row" class="col-lg-4">
+          <div class="form-group form-check">
+            <input type="checkbox" @change="addOrRemove(cont.cont, false)" class="form-check-input" :id="`input-cont-${cont.cont}`">
+            <label class="form-check-label" :for="`input-cont-${cont.cont}`">{{ cont.email }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="btn" type="button" class="btn btn-light" onclick="start()">start</button>
+  </div>
+  <br />
+  <div class="container">
+    <h2 id="problema" style="display: none"></h2>
+    <h2 id="progress">apasa pe start</h2>
+  </div>
+  <br />
+  <script src="./index.js"></script>
+</body>
+
+</html>

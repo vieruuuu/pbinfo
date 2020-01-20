@@ -1,11 +1,11 @@
 int oglindit(int n) {
-  int inv = 0, cif;
+  int ogl = 0;
 
   while (n != 0) {
-    cif = n % 10;
-    inv = inv * 10 + cif;
+    int c = n % 10;
+    ogl = ogl * 10 + c;
     n = n / 10;
   }
 
-  return inv;
+  return ogl;
 }

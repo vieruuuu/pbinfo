@@ -1,8 +1,8 @@
 int sumcif(int n) {
-  int s = 0, cif;
+  int s = 0;
 
   while (n != 0) {
-    cif = n % 10;
+    int cif = n % 10;
     s = s + cif;
     n = n / 10;
   }

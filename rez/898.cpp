@@ -1,21 +1,19 @@
 int sumfactcif(int n) {
-  int P, S = 0, cif, i;
+  int s = 0;
+
   if (n == 0) {
-    S = 1;
-  }
-  while (n != 0) {
-    cif = n % 10;
-    n = n / 10;
-    if (cif != 0) {
-      P = 1;
-      for (i = 1; i <= cif; i++) {
-        P = P * i;
-      }
-      S = S + P;
-    } else {
-      S = S + 1;
-    }
+    return 1;
   }
 
-  return S;
+  while (n != 0) {
+    int f = 1;
+    for (int i = 0; i <= n % 10; i++) {
+      if (i != 0) {
+        f = f * i;
+      }
+    }
+    s = s + f;
+    n = n / 10;
+  }
+  return s;
 }

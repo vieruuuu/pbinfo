@@ -2,30 +2,32 @@
 
 using namespace std;
 
+int n, I;
+
 struct bomba {
   int x, y;
   int p;
   int marcata = 0;
   int explodata = 0;
-}
-//         (x - b.x) * (x - b.x) + (y - b.y) * (y - b.y) = b.p * b.p
+};
+
 void boom(int _i, bomba bombe[]) {
   bombe[_i].marcata = 1;
 
-  int b = bombe[_i];
+  bomba b = bombe[_i];
 
   for (int i = 0; i < n; i++) {
     if (_i == i) {
       continue;
     }
 
-    int b2 = bombe[i];
+    bomba b2 = bombe[i];
 
     if (b2.marcata == 1 || b2.explodata == 1) {
       continue;
     }
 
-    if ((b2.x - b.x) * (b2.x - b.x) + (b2.y - b.y) * (b2.y - b.y) == b.p * b.p) {
+    if ((b2.x - b.x) * (b2.x - b.x) + (b2.y - b.y) * (b2.y - b.y) <= b.p * b.p) {
       boom(i, bombe);
     }
   }
@@ -34,7 +36,6 @@ void boom(int _i, bomba bombe[]) {
 }
 
 int main() {
-  int n, I;
 
   bomba bombe[101];
 
